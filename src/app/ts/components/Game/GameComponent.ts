@@ -34,6 +34,8 @@ export default class GameComponent {
 	}
 
 	isWinner(): boolean {
-		return this.boardService.rowsMatch(this.currentPlayer);
+		var rowsMatch = this.boardService.rowsMatch(this.currentPlayer);
+		var colsMatch = this.boardService.colsMatch(this.currentPlayer);
+		return rowsMatch || colsMatch;
 	}
 }

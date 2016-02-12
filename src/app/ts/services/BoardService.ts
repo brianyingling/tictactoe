@@ -3,8 +3,8 @@ import Board from '../models/Board';
 
 @Injectable()
 export default class BoardService {
-	
-	constructor (public board: Board) {}
+
+	constructor(public board: Board) { }
 
 	get() {
 		return this.board.get();
@@ -17,6 +17,11 @@ export default class BoardService {
 	rowsMatch(token) {
 		return this.board.rowsMatch(token);
 	}
+
+	colsMatch(token) {
+		return this.board.colsMatch(token);
+	}
+
 }
 
 export var BOARD_PROVIDERS: Array<any> = [

@@ -20,8 +20,18 @@ export default class Board {
 		return this._board;
 	}
 
-	colsMatch(token): boolean {
-		return false;
+	colsMatch(token) {
+		var cols = [];
+		for (var i = 0; i <= 2; i++) {
+			cols.push(this._board.map((row) => row[i]));
+		}
+		
+		let foundMatches = cols.map((col) => {
+			return _.reduce(col, (memo, cell) => {
+				return memo && (cell === token);
+			}, true);
+		});
+		return _.any(foundMatches, (isMatch) => !!isMatch);
 	}
 
 	rowsMatch(token): boolean {
@@ -30,7 +40,7 @@ export default class Board {
 				return memo && (cell === token);
 			}, true);
 		});
-		return _.every(foundMatches, (isMatch) => !!isMatch);
+		return _.any(foundMatches, (isMatch) => !!isMatch);
 	}
 
 	setMove(token, coords) {
