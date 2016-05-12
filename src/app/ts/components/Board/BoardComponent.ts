@@ -35,8 +35,6 @@ export default class BoardComponent {
 	@Output() choice = new EventEmitter();
 
 	selected(row, col) {
-		console.log('row:', row);
-		console.log('col:', col);
 		this.choice.emit({
 			row: row,
 			col: col

@@ -21,6 +21,9 @@ export default class BoardService {
 	colsMatch(token) {
 		return this.board.colsMatch(token);
 	}
+	diagonalsMatch(token) {
+		return this.board.diagonalsMatch(token);
+	}
 
 }
 
